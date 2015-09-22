@@ -7,14 +7,19 @@
 
 ## Setup
 
-1. Add the following entry to your `hosts` file:
+1. Add the following entries to your `hosts` file:
 
         192.168.101.101	ssl-exp.local
+        192.168.101.101	a.ssl-exp.local
+        192.168.101.101	b.ssl-exp.local
 
 2. Run `vagrant up`
 
-A simple index page at `https://ssl-exp.local` should now be accessible from
-the host machine (self-signed certificate warnings and all).
+Requests to the following locations should now be satisfied with simple index
+pages (self-signed certificate warnings and all).
+
+- `https://a.ssl-exp.local`
+- `https://b.ssl-exp.local`
 
 ## Key Generation
 

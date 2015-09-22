@@ -15,8 +15,9 @@ Vagrant.configure(2) do |config|
     sudo apt-get install -y nginx
     sudo hostname ssl-exp
     sudo -- sh -c 'echo "127.0.0.1	ssl-exp.local ssl-exp" >> /etc/hosts'
-    sudo ln -s /vagrant/src/server.key /etc/nginx
-    sudo ln -s /vagrant/src/server.crt /etc/nginx
+    sudo -- sh -c 'echo "127.0.0.1	a.ssl-exp.local ssl-exp" >> /etc/hosts'
+    sudo -- sh -c 'echo "127.0.0.1	b.ssl-exp.local ssl-exp" >> /etc/hosts'
+    sudo ln -s /vagrant/src/creds /etc/nginx/ssl-creds
     sudo ln -s /vagrant/src/nginx.conf /etc/nginx/sites-enabled/ssl-exp.local
     /etc/init.d/nginx restart
   SHELL
